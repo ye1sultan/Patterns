@@ -1,4 +1,5 @@
 import Title from "../components/Titile";
+import Footer from "../components/Footer";
 
 const Home = () => {
 
@@ -32,11 +33,12 @@ const Home = () => {
 
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="w-[375px] mt-14 px-6">
+            <div className="w-80 mt-14">
                 <Title title={"Recent Chats"} />
-                <div className="flex flex-col w-full mt-6">
+                <div className="flex flex-col w-full">
                     {employeeList}
                 </div>
+                <Footer />
             </div>
         </div>
     );
