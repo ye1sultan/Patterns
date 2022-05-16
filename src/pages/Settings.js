@@ -1,8 +1,12 @@
-import Title from "../components/Titile";
-import Footer from "../components/Footer";
+import Title from "../components/Title";
 import Setting from "../components/Setting";
 
 const Settings = () => {
+
+    const user = {
+        fullName: 'Dinara Ismagambetova',
+        status: 'Trust your feelings , be a good human beings!'
+    };
 
     const settings = {
         account: {
@@ -33,29 +37,26 @@ const Settings = () => {
     };
 
     return (
-        <div className="w-full flex flex-col items-center">
-            <div className="w-80 mt-14">
-                <Title title={"Settings"} />
-                <div className="flex flex-row">
-                    <img className="rounded-full w-16 h-16 mr-6" src="https://random.imagecdn.app/300/300" alt="Avatar" />
-                    <div className="flex flex-col">
-                        <div className="text-lg text-[#1B1A57] mb-1 font-medium">
-                            Dinara Ismagambetova
-                        </div>
-                        <div className="text-xs text-[#4F5E7B]">
-                            Trust your feelings , be a good human beings
-                        </div>
+        <>
+            <Title title={"Settings"} />
+            <div className="flex flex-row">
+                <img className="rounded-full w-16 h-16 mr-6" src="https://random.imagecdn.app/300/300" alt="Avatar" />
+                <div className="flex flex-col">
+                    <div className="text-lg text-[#1B1A57] mb-1 font-medium">
+                        {user.fullName}
+                    </div>
+                    <div className="text-xs text-[#4F5E7B]">
+                        {user.status}
                     </div>
                 </div>
-                <div className="flex flex-col w-full mt-6">
-                    <Setting icon={settings.account.icon} name={settings.account.name} hasNav={settings.account.hasNav} nav={settings.account.nav} />
-                    <Setting icon={settings.notification.icon} name={settings.notification.name} hasNav={settings.notification.hasNav} nav={settings.notification.nav} />
-                    <Setting icon={settings.privacyAndSecurity.icon} name={settings.privacyAndSecurity.name} hasNav={settings.privacyAndSecurity.hasNav} nav={settings.privacyAndSecurity.nav} />
-                    <Setting icon={settings.about.icon} name={settings.about.name} hasNav={settings.about.hasNav} nav={settings.about.nav} />
-                </div>
-                <Footer />
             </div>
-        </div>
+            <div className="flex flex-col w-full mt-6">
+                <Setting icon={settings.account.icon} name={settings.account.name} hasNav={settings.account.hasNav} nav={settings.account.nav} />
+                <Setting icon={settings.notification.icon} name={settings.notification.name} hasNav={settings.notification.hasNav} nav={settings.notification.nav} />
+                <Setting icon={settings.privacyAndSecurity.icon} name={settings.privacyAndSecurity.name} hasNav={settings.privacyAndSecurity.hasNav} nav={settings.privacyAndSecurity.nav} />
+                <Setting icon={settings.about.icon} name={settings.about.name} hasNav={settings.about.hasNav} nav={settings.about.nav} />
+            </div>
+        </>
     );
 };
 

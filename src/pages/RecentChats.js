@@ -1,16 +1,21 @@
-import Title from "../components/Titile";
-import Footer from "../components/Footer";
+import Title from "../components/Title";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const RecentChats = () => {
+    const navigate = useNavigate();
 
     const LatestUsers = {
         //There must be arr/obj that contains information about latest chat
     }
 
-    let employeeList = [];
+    const handleClick = () => {
+        navigate('/chat', {state: {}});
+    };
+    
+    let chatters = [];
     Array.from([1, 2, 3]).forEach((element, index) => {
-        employeeList.push(
-            <div className="flex flex-row h-16 w-full items-center mb-3 relative">
+        chatters.push(
+            <div className="flex flex-row h-16 w-full items-center mb-3 relative" onClick={handleClick}>
                 <img className="rounded-full w-12 h-12 mr-4" src="https://random.imagecdn.app/300/300" alt="Avatar"/>
                 <div className="self-start mt-2.5">
                     <div className="text-sm text-[#1B1A57] font-medium">
@@ -32,16 +37,13 @@ const Home = () => {
     });
 
     return (
-        <div className="w-full flex flex-col items-center">
-            <div className="w-80 mt-14">
-                <Title title={"Recent Chats"} />
-                <div className="flex flex-col w-full">
-                    {employeeList}
-                </div>
-                <Footer />
+        <>
+            <Title title={"Recent Chats"} />
+            <div className="flex flex-col w-full">
+                {chatters}
             </div>
-        </div>
+        </>
     );
 };
 
-export default Home;
+export default RecentChats;

@@ -1,11 +1,16 @@
 import './fonts/font.css';
-import Home from './pages/Home';
-import Settings from './pages/Settings';
+import {Routes, Route, Navigate} from 'react-router-dom';
+import Main from './pages/Main';
+import Chat from './pages/Chat';
 
 function App() {
 	return (
 		<div className="App">
-			<Settings />
+			<Routes>
+				<Route path='/' element={<Navigate to="/main" />} />
+				<Route path='/main' element={<Main />} />
+				<Route path='/chat' element={<Chat />} />
+			</Routes>
 		</div>
 	);
 }
